@@ -8,9 +8,13 @@ session_destroy();
 session_start();
 ob_start(); 
 ?>
+
+//Html coding
+
 <!DOCTYPE html>
 <html>
 <head>
+//name of website
     <title>Social Media</title>
     <link rel="stylesheet" type="text/css" href="resources/css/main.css">
     <style>
@@ -25,6 +29,8 @@ ob_start();
         }
     </style>
 </head>
+
+//body starts
 <body>
     <h1>Welcome to Social Media</h1>
     <div class="container">
@@ -154,8 +160,10 @@ ob_start();
 
 <?php
 $conn = connect();
-if ($_SERVER['REQUEST_METHOD'] == 'POST') { // A form is posted
-    if (isset($_POST['login'])) { // Login process
+if ($_SERVER['REQUEST_METHOD'] == 'POST') { 
+    // A form is posted
+    if (isset($_POST['login'])) {
+         // Login process
         $useremail = $_POST['useremail'];
         $userpass = md5($_POST['userpass']);
         $query = mysqli_query($conn, "SELECT * FROM users WHERE user_email = '$useremail' AND user_password = '$userpass'");
